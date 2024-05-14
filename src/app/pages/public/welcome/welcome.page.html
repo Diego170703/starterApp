@@ -3,6 +3,7 @@
     #swiper
     [pagination]="true"
     class="swiper-welcome"
+    [config]="config"
   >
 
     <swiper-slide>
@@ -16,7 +17,7 @@
       </ion-text>
     </swiper-slide>
       <swiper-slide>
-        <ion-icon name="logo-ionic" class="animate__animated animate__fadeInDown" size="large"></ion-icon>
+        <ion-icon name="logo-ionic" class="animate__animated animate__fadeInDown" ></ion-icon>
       
         <h3 class="animate__animated animate__fadeInUp">
           <ion-text color="light">Ionic Start Theme</ion-text>
@@ -36,3 +37,17 @@
     </swiper-slide>
   </swiper-container>
 </ion-content>
+<ion-footer
+  class="animate__animated animate__fadeInUp">
+  <ion-button
+    class="ion-margin"
+    expand="block" size="large" color="secondary" (click)="nextSlide()"
+    *ngIf="!last_slide">
+    Next
+    <ion-icon class="ion-icon-footer" slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-button>
+  <ion-button #swiperButtonVext class="ion-margin" expand="block" color="secondary" (click)="getStarted()"
+    *ngIf="last_slide">
+    Get started
+  </ion-button>
+</ion-footer>

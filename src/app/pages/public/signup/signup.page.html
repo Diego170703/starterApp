@@ -1,13 +1,63 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" text="Sign in" defaultHref="/signin"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-padding ion-full-height ion-flex ion-flex-center">
+    <div class="logo-container">
+      <h1 class="animate__animated animate__fadeInUp">
+        <ion-text color="light">Sign Up</ion-text>
+      </h1>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="secondary">Create a free account.</ion-text>
+      </p>
+    </div>
+    <form class="form-default" (ngSubmit)="login()" [formGroup]="credentials">
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Email
+        </ion-label>
+        <ion-input aria-label="Email" type="email" formControlName="email" color="secondary"
+          autocomplete="off"></ion-input>
+      </ion-item>
+      <div *ngIf="(email?.dirty || email?.touched) && email?.errors" class="errors">
+        <span *ngIf="email?.errors?.['required']">Email is required</span>
+        <span *ngIf="email?.errors?.['email']">Email is invalid</span>
+      </div>
+
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input aria-label="Password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div *ngIf="(password?.dirty || password?.touched) && password?.errors" class="errors">
+        <span *ngIf="password?.errors?.['required']">Password is required</span>
+        <span *ngIf="password?.errors?.['minlength']">Password needs to be 6 characters</span>
+      </div>
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          Password repeat
+        </ion-label>
+        <ion-input color="secondary" type="password" ></ion-input>
+      </ion-item>
+      <ion-button class="ion-margin-top" type="submit" expand="block" size="large" color="secondary">
+        Sign up free
+      </ion-button>
+    </form>
+
+  </div>
+  <div class="ion-text-center ion-margin-top">
+    <ion-text color="medium">
+      <small>&copy;{{current_year}} Jesús, Palma & Romero, S.A. de C.V.</small>
+    </ion-text>
+  </div>
+
 </ion-content>
