@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>edit</ion-title>
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" text="Settings" defaultHref="/settings">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="light">
+      Profile
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <form (ngSubmit)="submit()">
+        <ion-button color="secondary" type="submit" >
+          Done
+        </ion-button>
+      </form>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">edit</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="ion-no-margin profile-card">
+    <ion-card-content>
+      <ion-avatar>
+        <img src="../../../../assets/card-media.png">
+      </ion-avatar>
+      
+      <h1>
+        <ion-text color="tertiary"><strong>{{name}} {{surname}}</strong></ion-text>
+      </h1>
+      
+      <p>
+        <ion-text color="medium">{{email}}</ion-text>
+      </p>
+      
+      <ion-button class="ion-button-small" color="primary" (click)="updateProfilePicture()">
+        Update profile picture
+      </ion-button>
+      </ion-card-content>
+      
+  </ion-card>
+  <div class="ion-padding">
+    <form class="form-default" >
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          First name
+        </ion-label>
+        <ion-input color="secondary"></ion-input>
+      </ion-item>
+      
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          Last name
+        </ion-label>
+        <ion-input color="secondary" ></ion-input>
+      </ion-item>
+    </form>
+  </div>
 </ion-content>

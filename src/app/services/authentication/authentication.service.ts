@@ -10,7 +10,8 @@ const TOKEN_KEY = 'my-token';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+  
+export class AuthenticationService {
 
   // Init with null to filter out the first value in a guard!
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

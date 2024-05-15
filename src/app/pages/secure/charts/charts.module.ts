@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ChartsPageRoutingModule } from './charts-routing.module';
 
 import { ChartsPage } from './charts.page';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({
+  providers: [provideCharts(withDefaultRegisterables())],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChartsPageRoutingModule
+    ChartsPageRoutingModule,
+    
   ],
   declarations: [ChartsPage]
 })
