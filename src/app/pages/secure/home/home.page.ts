@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  content_loaded: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+    // Fake timeout
+    setTimeout(() => {
+      this.content_loaded = true;
+    }, 2000);
   }
-
 }

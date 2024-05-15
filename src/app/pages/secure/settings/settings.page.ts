@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  emailAddress = "john.doe@mail.com";
+  name = "Erwin";
+  surname = "Palma"
+
+  constructor(
+    private authService: AuthenticationService, private router: Router
+  ) { }
 
   ngOnInit() {
   }
+
+  // Sign out
+  async signOut() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
+  }
+
 
 }

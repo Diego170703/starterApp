@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterPage } from './filter/filter.page';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-payments',
@@ -7,9 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentsPage implements OnInit {
 
-  constructor() { }
+
+  content_loaded: boolean = false;
+
+  constructor(
+    private routerOutlet: IonRouterOutlet,
+    private modalController: ModalController,
+  ) { }
 
   ngOnInit() {
+
+    // Fake timeout
+    setTimeout(() => {
+      this.content_loaded = true;
+    }, 2000);
+  }
+
+  // Filter
+  async filter() {
+
+    // Open filter modal
+    const modal = await this.modalController.create({
+      component: FilterPage,
+      //swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl
+    });
+
+    await modal.present();
+
+    // Apply filter from modal
+    let { data } = await modal.onWillDismiss();
+
+    if (data) {
+
+      // Reload
+      this.content_loaded = false;
+
+      // Fake timeout
+      setTimeout(() => {
+        this.content_loaded = true;
+      }, 2000);
+    }
   }
 
 }
