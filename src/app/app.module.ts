@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-// NgCharts
-import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +17,6 @@ import { NgChartsModule } from 'ng2-charts';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    NgChartsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
