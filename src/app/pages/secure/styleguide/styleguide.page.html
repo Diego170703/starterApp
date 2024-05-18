@@ -23,7 +23,7 @@
     <ion-card color="primary">
       <ion-card-header>
         <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle>ion-card Simple</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
@@ -32,14 +32,29 @@
     </ion-card>
 
     <ion-card color="primary">
-      <img alt="Silhouette of mountains" src="../../../../assets/card-media.png" />
       <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>Truncated Text</ion-card-title>
+        <ion-card-subtitle>Texto truncado con 30 caracateres</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        <p>Texto truncado con 20 caracateres: {{ VariableDeTexto | truncate : 20}}</p>
+        <p>Texto truncado con 4 palabras: {{ VariableDeTexto | words : 4}}</p>
+        <ion-text color="tertiary"><a src="https://github.com/yellowspot/ng2-truncate?tab=readme-ov-file">Documentación</a></ion-text>
+      </ion-card-content>
+    </ion-card>
+
+
+    
+    <ion-card color="primary">
+      <img alt="Silhouette of mountains" src="../../../../assets/card-media.png" />
+      <ion-card-header>
+        <ion-card-title>Truncated Text</ion-card-title>
+        <ion-card-subtitle>Show more | less</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-truncated-text [limit]=100 [text]="bigText"></app-truncated-text>
       </ion-card-content>
     </ion-card>
 
