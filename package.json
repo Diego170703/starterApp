@@ -31,6 +31,7 @@
     "@capacitor/splash-screen": "^6.0.0",
     "@capacitor/status-bar": "^6.0.0",
     "@ionic/angular": "^8.0.0",
+    "@yellowspot/ng-truncate": "^2.0.2",
     "animate.css": "^4.1.1",
     "date-fns": "^3.6.0",
     "ionicons": "^7.0.0",

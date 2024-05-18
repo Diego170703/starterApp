@@ -7,14 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { StyleguidePageRoutingModule } from './styleguide-routing.module';
 
 import { StyleguidePage } from './styleguide.page';
+import { TruncateModule } from '@yellowspot/ng-truncate';
+import { TruncatedTextComponent } from 'src/app/components/truncated-text/truncated-text.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StyleguidePageRoutingModule
+    StyleguidePageRoutingModule,
+    TruncateModule
+    
   ],
-  declarations: [StyleguidePage]
+  declarations: [StyleguidePage, TruncatedTextComponent ]
 })
 export class StyleguidePageModule {}
